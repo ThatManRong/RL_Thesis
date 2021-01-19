@@ -24,3 +24,19 @@ def remove_outlier(df):
       if table.iloc[i,j] < 0:
         df.iloc[i,j] = 0
   return df
+
+def remove_only_bottom_outlier(df):
+  for i in range(len(df)):
+    for j in range(0,4):
+      if i>=8:
+        df.iloc[i,j] -=0.4
+      if i == 11:
+        df.iloc[i,j] = 0
+
+  for i in range(len(df)):
+    for j in range(0,4):
+      if df.iloc[i,j] < 0:
+        df.iloc[i,j] = 0
+
+  return df
+  
